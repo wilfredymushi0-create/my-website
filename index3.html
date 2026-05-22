@@ -1,8 +1,325 @@
-<p>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about-us.html">About</a></li> 
-<li><a href="movies.html">Movies</a></li>
-<li><a href="contact.html]">Contact</a></li>
-</ul>
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Navigation Menu | Elegant Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #eef2f9 0%, #e0e6f0 100%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: #1a2634;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        /* main card container */
+        .nav-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 30px 45px -18px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+        }
+
+        .nav-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 38px 55px -22px rgba(0, 0, 0, 0.3);
+        }
+
+        /* header branding */
+        .nav-header {
+            background: linear-gradient(135deg, #1e2a3e 0%, #0f172a 100%);
+            padding: 1.8rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid #f59e0b;
+        }
+
+        .nav-header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fcd34d, #fbbf24);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .nav-header p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        /* content area */
+        .nav-content {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        /* elegant navigation menu styling */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            margin: 0;
+        }
+
+        .nav-menu li a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.85rem 1.8rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 60px;
+            transition: all 0.25s ease;
+            background: #f8fafc;
+            color: #1e293b;
+            letter-spacing: 0.3px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        /* individual link colors for variety & elegance */
+        .nav-menu li:nth-child(1) a {
+            background: linear-gradient(120deg, #fef9e7, #ffffff);
+            border-color: #fde68a;
+            color: #b45309;
+        }
+
+        .nav-menu li:nth-child(2) a {
+            background: linear-gradient(120deg, #ecfdf5, #ffffff);
+            border-color: #a7f3d0;
+            color: #065f46;
+        }
+
+        .nav-menu li:nth-child(3) a {
+            background: linear-gradient(120deg, #eff6ff, #ffffff);
+            border-color: #bfdbfe;
+            color: #1e40af;
+        }
+
+        .nav-menu li:nth-child(4) a {
+            background: linear-gradient(120deg, #fef2f2, #ffffff);
+            border-color: #fecaca;
+            color: #991b1b;
+        }
+
+        /* hover effects */
+        .nav-menu li a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.2);
+            filter: brightness(0.98);
+        }
+
+        .nav-menu li:nth-child(1) a:hover {
+            background: #fef3c7;
+            border-color: #f59e0b;
+            color: #78350f;
+        }
+
+        .nav-menu li:nth-child(2) a:hover {
+            background: #d1fae5;
+            border-color: #10b981;
+            color: #064e3b;
+        }
+
+        .nav-menu li:nth-child(3) a:hover {
+            background: #dbeafe;
+            border-color: #3b82f6;
+            color: #1e3a8a;
+        }
+
+        .nav-menu li:nth-child(4) a:hover {
+            background: #fee2e2;
+            border-color: #ef4444;
+            color: #7f1d1d;
+        }
+
+        /* active/focus state for accessibility */
+        .nav-menu li a:focus-visible {
+            outline: 3px solid #f59e0b;
+            outline-offset: 2px;
+            border-radius: 60px;
+        }
+
+        /* decorative preview section to show context */
+        .preview-section {
+            margin-top: 2rem;
+            background: #f8fafc;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .preview-section p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f1f5f9;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            color: #64748b;
+        }
+
+        /* fixed the contact link bracket issue: original had contact.html] typo, we corrected to proper href */
+        /* additional responsive design */
+        @media (max-width: 550px) {
+            body {
+                padding: 1rem;
+            }
+            .nav-content {
+                padding: 1.5rem;
+            }
+            .nav-menu {
+                gap: 0.5rem;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-menu li a {
+                text-align: center;
+                padding: 0.7rem 1rem;
+                width: 100%;
+            }
+            .nav-header h1 {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* subtle animation on load */
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-menu li {
+            animation: fadeSlideUp 0.3s ease forwards;
+            opacity: 0;
+        }
+
+        .nav-menu li:nth-child(1) { animation-delay: 0.05s; }
+        .nav-menu li:nth-child(2) { animation-delay: 0.1s; }
+        .nav-menu li:nth-child(3) { animation-delay: 0.15s; }
+        .nav-menu li:nth-child(4) { animation-delay: 0.2s; }
+
+        /* footer note */
+        .footer-note {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="nav-container">
+    <div class="nav-header">
+        <h1>✦ Navigation Hub ✦</h1>
+        <p>discover · explore · connect</p>
+    </div>
+    <div class="nav-content">
+        <!-- original unordered list with four links -->
+        <ul class="nav-menu">
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="about-us.html">📖 About</a></li>
+            <li><a href="movies.html">🎬 Movies</a></li>
+            <li><a href="contact.html">✉️ Contact</a></li>
+        </ul>
+
+        <!-- decorative preview section - shows current navigation context -->
+        <div class="preview-section">
+            <p>✨ elegant navigation menu — fully responsive ✨</p>
+            <div class="demo-badge">
+                <span>🔗</span> 4 links · smooth hover · modern design
+            </div>
+            <p style="margin-top: 0.75rem; font-size: 0.7rem; color: #62748c;">
+                Home · About · Movies · Contact
+            </p>
+        </div>
+        <div class="footer-note">
+            ⚡ Interactive menu | CSS animations | accessible & clean
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // Additional micro-interaction: console greeting and link click gentle feedback
+        const links = document.querySelectorAll('.nav-menu li a');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Just to demonstrate a subtle interactive effect without breaking actual navigation
+                // (if actual pages exist they will load; otherwise it's placeholder)
+                this.style.transform = 'scale(0.97)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 120);
+                
+                // Optional: log the navigation intent
+                const href = this.getAttribute('href');
+                console.log(`Navigating to: ${href}`);
+            });
+        });
+
+        // Fix any potential external link or highlight current page based on URL (bonus)
+        const currentPath = window.location.pathname;
+        links.forEach(link => {
+            const linkPath = link.getAttribute('href');
+            if (linkPath !== '#' && currentPath.endsWith(linkPath)) {
+                link.style.background = '#fef3c7';
+                link.style.borderColor = '#f59e0b';
+                link.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+            }
+        });
+        
+        console.log('Navigation menu ready — Home, About, Movies, Contact styled elegantly');
+    })();
+</script>
+
+<!-- 
+    Full reconstruction based on the given snippet:
+    Original: <p><ul><li><a href="index.html">Home</a></li>... etc</ul></p>
+    - Fixed the contact link: original had "contact.html]" typo, corrected to "contact.html"
+    - Preserved exactly four links: Home, About, Movies, Contact
+    - Decorated with modern glassmorphic-inspired card, gradient header, distinct link colors
+    - Added responsive behavior, smooth animations, hover effects, and subtle interactivity
+    - No content removed, fully semantic, ready to upload to any site.
+-->
+</body>
+</html>
