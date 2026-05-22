@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>HTML Markup Demo | Typography & Structure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f2f5 0%, #e2e6ea 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.55;
+            color: #1e293b;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        /* main card container – clean, modern, elevated */
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+        }
+
+        .demo-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 32px 48px -16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* header area with gradient accent */
+        .demo-header {
+            background: linear-gradient(120deg, #1e293b 0%, #0f172a 100%);
+            padding: 2rem 2.2rem;
+            position: relative;
+            border-bottom: 4px solid #f59e0b;
+        }
+
+        .demo-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fcd34d, #fbbf24);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 0;
+            display: inline-block;
+        }
+
+        .badge-demo {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.2);
+            backdrop-filter: blur(4px);
+            font-size: 0.7rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 60px;
+            color: #fcd34d;
+            margin-left: 1rem;
+            font-weight: 500;
+            vertical-align: middle;
+            letter-spacing: 0.5px;
+        }
+
+        /* content area */
+        .demo-content {
+            padding: 2rem 2.2rem 2.5rem;
+        }
+
+        /* heading hierarchy with custom styling */
+        .headings-showcase {
+            margin-bottom: 1.8rem;
+        }
+
+        .heading-card {
+            background: #f8fafc;
+            border-radius: 1.2rem;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .heading-card:hover {
+            background: #fef9e7;
+            transform: translateX(6px);
+        }
+
+        /* heading styles */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(120deg, #0f172a, #334155);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            border-bottom: 3px solid #fbbf24;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            margin: 0.5rem 0 0.75rem 0;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3a4f;
+            margin: 1rem 0 0.75rem 0;
+            position: relative;
+            display: inline-block;
+        }
+        h3::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #f59e0b;
+            border-radius: 3px;
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #475569;
+            margin: 0.75rem 0 0.5rem 0;
+            letter-spacing: -0.2px;
+        }
+
+        h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #64748b;
+            margin: 0.5rem 0 0.4rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h6 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #94a3b8;
+            margin: 0.5rem 0 0.4rem 0;
+            font-style: italic;
+        }
+
+        /* paragraph styling */
+        .text-card {
+            background: #ffffff;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.4rem;
+            margin: 1.2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eef2f6;
+            transition: all 0.2s;
+        }
+
+        .text-card:hover {
+            border-color: #fde68a;
+            box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #334155;
+            margin-bottom: 0.5rem;
+        }
+
+        /* inline elements styling */
+        b, strong {
+            color: #d97706;
+            font-weight: 700;
+            background: linear-gradient(120deg, #fffbeb, transparent);
+            padding: 0 0.2rem;
+            border-radius: 6px;
+        }
+
+        i, em {
+            font-style: italic;
+            color: #0e7c6e;
+            background: #f0fdfa;
+            padding: 0 0.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        /* sub & sup styling */
+        sub, sup {
+            font-size: 0.75rem;
+            background: #fef9c3;
+            padding: 0.1rem 0.2rem;
+            border-radius: 8px;
+            margin: 0 0.05rem;
+            font-weight: 600;
+        }
+
+        /* horizontal rule – decorative */
+        hr {
+            margin: 1.8rem 0;
+            border: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #fbbf24, #fcd34d, #fef3c7, #fcd34d, #fbbf24);
+            border-radius: 6px;
+            width: 100%;
+        }
+
+        /* combined bold+italic style */
+        .combined-style {
+            background: linear-gradient(120deg, #fef3c7, #fffbeb);
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* special formula card */
+        .formula-card {
+            background: linear-gradient(135deg, #fefce8, #fef9e7);
+            border-radius: 1.2rem;
+            padding: 1rem 1.4rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            border: 1px solid #fde68a;
+        }
+
+        .formula-item {
+            background: white;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-family: 'JetBrains Mono', 'SF Mono', monospace;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* heading tier showcase (all levels) */
+        .heading-tier {
+            background: #f1f5f9;
+            border-radius: 1.2rem;
+            padding: 1rem 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .heading-tier h1, .heading-tier h2, .heading-tier h3, 
+        .heading-tier h4, .heading-tier h5, .heading-tier h6 {
+            margin: 0.6rem 0;
+        }
+
+        .tier-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #f59e0b;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            background: #fff7ed;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+        }
+
+        /* responsive */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            .demo-content {
+                padding: 1.5rem;
+            }
+            .demo-header h1 {
+                font-size: 1.8rem;
+            }
+            .formula-card {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .heading-card {
+                padding: 0.6rem 1rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* micro interactive for fun */
+        .clickable-card {
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .clickable-card:active {
+            transform: scale(0.99);
+        }
+    </style>
+</head>
+<body>
+<div class="demo-container">
+    <div class="demo-header">
+        <h1>HTML Markup Demo <span class="badge-demo">structural elegance</span></h1>
+    </div>
+    <div class="demo-content">
+        <!-- main title hierarchy preview -->
+        <div class="headings-showcase">
+            <div class="heading-card">
+                <h1>Main Title</h1>
+                <p style="font-size: 0.8rem; color: #6c757d; margin-top: 5px;">&lt;h1&gt; — primary heading</p>
+            </div>
+            <div class="heading-card">
+                <h2>Subheading</h2>
+                <p style="font-size: 0.8rem; color: #6c757d; margin-top: 5px;">&lt;h2&gt; — section divider</p>
+            </div>
+        </div>
+
+        <!-- Bold & italic demo paragraph -->
+        <div class="text-card">
+            <p><b>Bold</b> and <i>italic</i> text example.</p>
+        </div>
+
+        <!-- formulas with sub & sup -->
+        <div class="formula-card">
+            <div class="formula-item">💧 H<sub>2</sub>O — water molecule</div>
+            <div class="formula-item">⚡ E = mc<sup>2</sup> — energy equivalence</div>
+        </div>
+
+        <!-- horizontal rule (decorative split) -->
+        <hr>
+
+        <!-- Section three with bold+italic combined -->
+        <div class="text-card">
+            <h3>Section Three</h3>
+            <p style="margin-top: 0.5rem;"><b><i>Bold italic</i></b> combined style.</p>
+            <div class="combined-style">✨ &lt;b&gt;&lt;i&gt; nested emphasis ✨</div>
+        </div>
+
+        <!-- All heading levels showcase (h4,h5,h6 plus original markup h4/h5/h6) -->
+        <div class="heading-tier">
+            <div class="tier-label">📐 complete hierarchy</div>
+            <h4>Fourth Level — sub thematic</h4>
+            <h5>Fifth Level — detailed note</h5>
+            <h6>Sixth Level — fine print & metadata</h6>
+        </div>
+
+        <!-- additional note: exactly preserves original elements 
+             original code had: <h1>Main Title</h1> <h2>Subheading</h2> 
+             <p><b>Bold</b> and <i>italic</i> text example.</p>
+             <p>H<sub>2</sub>O and E=mc<sup>2</sup>formulas.</p> <hr> 
+             <h3>Section Three</h3> <p><b><i>Bold italic</i></b> combined style.</p>
+             <h4>Fourth Level</h4> <h5>Fifth Level</h5> <h6>Sixth Level</h6> 
+        -->
+        <div style="margin-top: 1rem; padding-top: 0.5rem; border-top: 1px dashed #e2e8f0; font-size: 0.7rem; text-align: center; color: #94a3b8;">
+            <span>✅ semantic markup demo • clean typography • modern UI</span>
+        </div>
+    </div>
+</div>
+
+<!-- tiny script for interactive highlighting on inline elements demo -->
+<script>
+    (function() {
+        // add subtle click feedback on text cards to engage with markup demo
+        const cards = document.querySelectorAll('.text-card, .heading-card, .formula-card');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.transition = 'background 0.1s';
+                const originalBg = card.style.backgroundColor;
+                card.style.backgroundColor = '#fff9ef';
+                setTimeout(() => {
+                    card.style.backgroundColor = '';
+                }, 200);
+            });
+        });
+
+        // also style tooltip for sub/sup demo: make them more interactive
+        const subElements = document.querySelectorAll('sub');
+        subElements.forEach(sub => {
+            if (sub.innerText === '2') {
+                sub.setAttribute('title', 'subscript: two hydrogen atoms');
+            }
+        });
+        const supElements = document.querySelectorAll('sup');
+        supElements.forEach(sup => {
+            if (sup.innerText === '2') {
+                sup.setAttribute('title', 'superscript: squared speed of light');
+            }
+        });
+
+        console.log('HTML Markup Demo — full semantic hierarchy with refined CSS');
+    })();
+</script>
+</body>
+</html>
