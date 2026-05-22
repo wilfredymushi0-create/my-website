@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Film Folk | Festival Diary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f5f0e7 0%, #e8dfd3 100%);
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: #1e1b1a;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        /* main card container – elegant, warm, film-inspired */
+        .diary-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffef7;
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        /* artistic header section with filmstrip motif */
+        .film-header {
+            background: #1c1c1c;
+            padding: 2rem 2.5rem 1.8rem;
+            position: relative;
+            border-bottom: 6px solid #e4b363;
+        }
+
+        .film-header::before {
+            content: "🎬";
+            font-size: 3rem;
+            position: absolute;
+            bottom: 0.8rem;
+            right: 2rem;
+            opacity: 0.2;
+            pointer-events: none;
+            transform: rotate(5deg);
+        }
+
+        .film-header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #f9e0a0, #e2b86b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+            margin-bottom: 0.4rem;
+        }
+
+        .film-header .tagline {
+            color: #cbcbcb;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
+            border-left: 3px solid #e4b363;
+            padding-left: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* content area */
+        .diary-content {
+            padding: 2rem 2.5rem 2.2rem;
+        }
+
+        /* intro paragraph styled with subtle film reference */
+        .intro-text {
+            background: #fef7e8;
+            padding: 1.2rem 1.6rem;
+            border-radius: 1.6rem;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            color: #2d2a27;
+            border-left: 5px solid #e4b363;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .intro-text p {
+            margin: 0;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: #1e1b1a;
+            color: #f7e5c2 !important;
+            text-decoration: none;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin: 0 0.2rem;
+        }
+
+        .contact-link:hover {
+            background: #e4b363;
+            color: #1c1c1c !important;
+            transform: scale(0.97);
+        }
+
+        /* festival months grid style */
+        .festival-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .month-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 0.2rem 0 0.2rem 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #f0e3d4;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .month-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 30px -12px rgba(0, 0, 0, 0.12);
+            border-color: #e9d9c5;
+        }
+
+        .month-heading {
+            display: inline-block;
+            background: #2c2825;
+            color: #faeec9;
+            padding: 0.4rem 1.6rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            margin-left: 1.2rem;
+            margin-top: 1rem;
+            box-shadow: inset 0 -1px 0 rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .festival-info {
+            padding: 0.5rem 1.8rem 1.5rem 1.8rem;
+        }
+
+        .festival-info a {
+            font-size: 1.35rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #b45f2b;
+            border-bottom: 2px solid #f3d9b5;
+            transition: color 0.2s, border-color 0.2s;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .festival-info a:hover {
+            color: #8b3c0c;
+            border-bottom-color: #e4b363;
+        }
+
+        .festival-details {
+            margin-top: 0.6rem;
+            color: #4f4a45;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            background: #fefbf6;
+            padding: 0.7rem 1rem;
+            border-radius: 1rem;
+            width: fit-content;
+        }
+
+        .festival-details br {
+            display: block;
+            content: "";
+            margin: 4px 0;
+        }
+
+        /* "About Film Folk" button style */
+        .about-link {
+            margin: 2.2rem 0 1.8rem;
+            text-align: center;
+        }
+
+        .about-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1c1c1c;
+            color: #ffefcf !important;
+            text-decoration: none;
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.25s;
+            border: 1px solid #3b3530;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+        }
+
+        .about-btn:hover {
+            background: #e4b363;
+            color: #1c1c1c !important;
+            border-color: #cb9b4e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-btn::before {
+            content: "🎞️";
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .about-btn:hover::before {
+            transform: rotate(8deg);
+        }
+
+        /* top of page link */
+        .top-link-area {
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .top-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f4ede3;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #3a322c;
+            transition: all 0.2s;
+            border: 1px solid #e4d5c4;
+        }
+
+        .top-link:hover {
+            background: #e4b363;
+            color: #1c1c1c;
+            border-color: #c29647;
+            transform: translateY(-2px);
+        }
+
+        /* decorative film strip spacer (hidden but preserves semantics) */
+        .film-spacer {
+            height: 6px;
+            background: repeating-linear-gradient(90deg, #e4b363 0px, #e4b363 12px, #2c2c2c 12px, #2c2c2c 24px);
+            margin-top: 0.5rem;
+        }
+
+        /* responsive adjustments */
+        @media (max-width: 650px) {
+            body {
+                padding: 1rem;
+            }
+            .diary-content {
+                padding: 1.5rem;
+            }
+            .film-header h1 {
+                font-size: 2.3rem;
+            }
+            .festival-info a {
+                font-size: 1.2rem;
+                word-break: break-word;
+            }
+            .month-heading {
+                margin-left: 0.8rem;
+                font-size: 0.85rem;
+            }
+            .festival-info {
+                padding: 0.2rem 1.2rem 1.2rem 1.2rem;
+            }
+        }
+
+        /* subtle print optimization */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .diary-container {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            .top-link, .about-btn {
+                background: #eee;
+                color: black;
+            }
+        }
+
+        /* extras for broken contact link fix — ensure "Please contact us" is interactive */
+        .intro-text .contact-text {
+            margin-right: 0.3rem;
+        }
+        .inline-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+<div class="diary-container">
+    <div class="film-header">
+        <h1>Film Folk</h1>
+        <div class="tagline">independent spirit · timeless stories</div>
+    </div>
+
+    <div class="diary-content">
+        <!-- Festival Diary intro -->
+        <div class="intro-text">
+            <p>
+                <span class="contact-text">📅 Here are some of the film festivals we will be attending this year.</span>
+                <span class="inline-contact">
+                    <a href="#" class="contact-link" id="contactUsBtn">✉️ contact us</a>
+                    <span style="font-size:0.85rem; color:#665e56;">if you would like more information.</span>
+                </span>
+            </p>
+        </div>
+
+        <!-- Festival list using month cards -->
+        <div class="festival-grid">
+            <!-- January -->
+            <div class="month-card">
+                <div class="month-heading">❄️ JANUARY</div>
+                <div class="festival-info">
+                    <a href="http://www.sundance.org" target="_blank" rel="noopener noreferrer">Sundance Film Festival</a>
+                    <div class="festival-details">
+                        Park City, Utah, USA<br />
+                        20 - 30 January 2011
+                    </div>
+                </div>
+            </div>
+
+            <!-- February -->
+            <div class="month-card">
+                <div class="month-heading">🎬 FEBRUARY</div>
+                <div class="festival-info">
+                    <a href="http://www.tropfest.com" target="_blank" rel="noopener noreferrer">Tropfest</a>
+                    <div class="festival-details">
+                        Sydney, Australia<br />
+                        20 February 2011
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Film Folk link (original about.html preserved) -->
+        <div class="about-link">
+            <a href="about.html" class="about-btn">About Film Folk</a>
+        </div>
+
+        <!-- decorative spacer that mimics film reel (inspired by vintage) -->
+        <div class="film-spacer"></div>
+
+        <!-- Top of page link (keeps #top functionality) -->
+        <div class="top-link-area">
+            <a href="#top" class="top-link">⬆ Top of page</a>
+        </div>
+    </div>
+    <!-- minor extra spacing for original multiple <br> effect, but now elegantly styled -->
+    <div style="height: 0.5rem;"></div>
+</div>
+
+<!-- small javascript to enhance contact link with a subtle alert / dialogue, 
+     but keeping the original HTML semantics from image. Also ensures accessibility -->
+<script>
+    (function() {
+        // Preserve original 'contact us' link behavior: originally in the image there was an incomplete </a> but we rebuilt.
+        // The image had a broken snippet: "Please contact us</a>" - we fixed structure but adding an elegant interactive toast.
+        const contactBtn = document.getElementById('contactUsBtn');
+        if (contactBtn) {
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // subtle modern notification instead of default alert for better UX
+                const toastMsg = document.createElement('div');
+                toastMsg.innerText = '📧 filmfolk@example.com | +1 (212) 555 0987';
+                toastMsg.style.position = 'fixed';
+                toastMsg.style.bottom = '25px';
+                toastMsg.style.left = '50%';
+                toastMsg.style.transform = 'translateX(-50%)';
+                toastMsg.style.backgroundColor = '#1e1b1a';
+                toastMsg.style.color = '#f7e5c2';
+                toastMsg.style.padding = '12px 24px';
+                toastMsg.style.borderRadius = '60px';
+                toastMsg.style.fontSize = '0.9rem';
+                toastMsg.style.fontWeight = '500';
+                toastMsg.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+                toastMsg.style.zIndex = '1000';
+                toastMsg.style.backdropFilter = 'blur(2px)';
+                toastMsg.style.border = '1px solid #e4b363';
+                toastMsg.style.fontFamily = 'inherit';
+                toastMsg.style.letterSpacing = '0.3px';
+                document.body.appendChild(toastMsg);
+                setTimeout(() => {
+                    toastMsg.style.opacity = '0';
+                    toastMsg.style.transition = 'opacity 0.4s ease';
+                    setTimeout(() => {
+                        if (toastMsg.parentNode) toastMsg.parentNode.removeChild(toastMsg);
+                    }, 400);
+                }, 2800);
+            });
+        }
+
+        // For the top link, ensure it smoothly scrolls to top (soft behavior)
+        const topLink = document.querySelector('.top-link');
+        if (topLink) {
+            topLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Also update url hash without jumping? but we keep consistent with '#top'
+                history.pushState(null, null, '#top');
+            });
+        }
+
+        // If any anchor with href="#top" exists natively, enhance them all
+        const allTopAnchors = document.querySelectorAll('a[href="#top"]');
+        allTopAnchors.forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                history.pushState(null, null, '#top');
+            });
+        });
+        
+        // About link just goes to about.html (standard behavior, preserve original)
+        // Also ensure external festival links open securely (target _blank already set)
+    })();
+</script>
+
+<!-- 
+    Additional note: The original image included a lot of <br /> tags to push content down, 
+    but the decorated layout uses spacing, card design and elegant margins instead. 
+    We have also kept the exact festival names, dates, locations and all links as in the original.
+    "About Film Folk" link points to about.html, "Top of page" link returns to top with smooth scroll.
+    The original comment <!-- additional content --> is embedded in spirit.
+    The design uses warm cinema / folk colors, subtle shadows, filmstrip accents and clean typography.
+-->
+</body>
+</html>
